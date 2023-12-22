@@ -12,7 +12,7 @@ y = dtst["MentHlth"]
 
 print(x)
 
-x = PolynomialFeatures(degree = 5).fit_transform(x)
+x = PolynomialFeatures(degree = 5).fit_transform(x) # Changing degree into 1 results in linear regression model.
 model = linear_model.LinearRegression()
 model.fit(x, y)
 
