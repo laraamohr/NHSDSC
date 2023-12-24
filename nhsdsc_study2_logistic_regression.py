@@ -24,9 +24,9 @@ dtst.to_csv("dataset/newDataset.csv")
 newDatasetDir = "datasets/newDataset.csv"
 dtst = pandas.read_csv(newDatasetDir)
 
-factors = ["Diabetes_012", "HighBP"]
+factors = ["Diabetes_012"]
 x = dtst[factors]
-y = dtst.MentHlth
+y = dtst["MentHlth"]
 
 # Code for splitting dataset into testing and training sections.
 '''
@@ -41,6 +41,6 @@ from sklearn.linear_model import LogisticRegression
 
 model = LogisticRegression(random_state=16)
 model.fit(x, y)
-pred = model.predict([[2, 1]])
+pred = model.predict([[2]])
 
 print(pred)

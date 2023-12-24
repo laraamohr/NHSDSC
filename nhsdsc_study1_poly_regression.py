@@ -10,6 +10,9 @@ dtst = pandas.read_csv(dtst_dir)
 x = dtst[["GenHlth", "HighBP", "HighChol", "CholCheck", "BMI", "Smoker", "Stroke", "HeartDiseaseorAttack", "PhysActivity", "Fruits", "Veggies", "HvyAlcoholConsump", "AnyHealthcare", "NoDocbcCost", "GenHlth", "PhysHlth", "DiffWalk", "Sex", "Age", "Education", "Income"]]
 y = dtst["MentHlth"]
 
+plt.plot(dtst["GenHlth"], dtst["MentHlth"])
+plt.show()
+
 print(x)
 
 x = PolynomialFeatures(degree = 3).fit_transform(x) # Changing degree into 1 results in linear regression model.
