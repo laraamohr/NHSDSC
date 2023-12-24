@@ -19,7 +19,8 @@ plt.show()
 
 print(x[0], y[0])
 
-polyModel = PolynomialFeatures(degree = 3) # Changing degree into 1 results in linear regression model.
+'''
+polyModel = PolynomialFeatures(degree = 4) # Changing degree into 1 results in linear regression model.
 polyX = polyModel.fit_transform(x)
 polyModel.fit(polyX, y)
 
@@ -33,8 +34,8 @@ print(mean_squared_error(y, predictions, squared=False))
 
 degrees = [1, 2, 3, 4, 5, 6, 7]
 mean_squared_error_list = [6.658825469443437, 6.553170836282355, 6.5089789129822035]
-
 '''
+
 degrees = [1, 2, 3, 4, 5, 6, 7]
 averageSquaredError = []
 
@@ -52,4 +53,7 @@ for degree in degrees:
 
 plt.scatter(degrees, averageSquaredError, color="green")
 plt.plot(degrees, averageSquaredError, color="red")
-'''
+
+
+# https://stackoverflow.com/questions/57507832/unable-to-allocate-array-with-shape-and-data-type
+# https://enjoymachinelearning.com/blog/multivariate-polynomial-regression-python/
