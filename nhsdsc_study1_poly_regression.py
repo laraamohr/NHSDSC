@@ -30,10 +30,10 @@ polyModel.fit(xTrain, yTrain)
 linearModel = LinearRegression()
 linearModel.fit(xTrain, yTrain)
 
-predictions = linearModel.predict(xTrain)
+predictions = linearModel.predict(xValidation)
 
 print(predictions)
-print(mean_squared_error(yTrain, predictions, squared=False))
+print(mean_squared_error(yValidation, predictions, squared=False))
 
 degrees = [1, 2, 3, 4, 5, 6, 7]
 mean_squared_error_list = [6.658825469443437, 6.553170836282355, 6.5089789129822035]
