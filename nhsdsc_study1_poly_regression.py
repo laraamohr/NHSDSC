@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split
 
-dtst_dir = "datasets\diabetes_012_health_indicators_BRFSS2015.csv"
+dtst_dir = "datasets/diabetes_012_health_indicators_BRFSS2015.csv"
 
 dtst = pandas.read_csv(dtst_dir).dropna()
 
@@ -17,20 +18,22 @@ plt.plot(dtst["GenHlth"], dtst["MentHlth"])
 plt.show()
 '''
 
-print(x[0], y[0])
-
-
-polyModel = PolynomialFeatures(degree = 4) # Changing degree into 1 results in linear regression model.
+polyModel = PolynomialFeatures(degree = 4, include_bias=False) # Changing degree into 1 results in linear regression model.
 polyX = polyModel.fit_transform(x)
-polyModel.fit(polyX, y)
+
+# Split the dataset into to train/test sections.
+
+xTrain, xValidation, yTrain, yValidation = train_test_split(polyX, y, test_size=0.95, random_state=42)
+
+polyModel.fit(xTrain, yTrain)
 
 linearModel = LinearRegression()
-linearModel.fit(polyX, y)
+linearModel.fit(xTrain, yTrain)
 
-predictions = linearModel.predict(polyX)
+predictions = linearModel.predict(xTrain)
 
 print(predictions)
-print(mean_squared_error(y, predictions, squared=False))
+print(mean_squared_error(yTrain, predictions, squared=False))
 
 degrees = [1, 2, 3, 4, 5, 6, 7]
 mean_squared_error_list = [6.658825469443437, 6.553170836282355, 6.5089789129822035]
