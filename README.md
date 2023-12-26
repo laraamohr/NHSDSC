@@ -17,3 +17,5 @@ Keep in mind that the file "newDataset.csv" under the "datasets" directory can a
 2023/12/26
 
 Code now works on a smaller dataset if only 100000 entries. Next steps are trying to write code to create a smaller, randomized dataset from the big, original dataset (diabetes_012_health_indicators_BRFSS2015.csv). 
+
+The original problems seems to be that a dataset with 250000+ entries was being problematic when the program tried to scale the dataframe into arrays of higher dimensions for training. The limited computing power we possessed yielded an "not enough memory" error, which I believe refers to RAM. Hence, by making the dataset smaller it may be easier to process. Splitting the dataset into xtrain, ytrain, xvalidation, and yvalidation sections also seem to be of great help for training a more accurate model.
