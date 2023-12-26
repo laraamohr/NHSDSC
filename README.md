@@ -13,3 +13,7 @@ Seems like logistic regression is best used to predict some type of binary outco
 Working on logistic regression model rn. Issue is that the x-values apparently does not have "valid feature names", whatever that means. Need to work towards figuring out that error. SO CLOSE!
 
 Keep in mind that the file "newDataset.csv" under the "datasets" directory can as of right not be solely used for the second study ("nhsdsc_study2_logistic_regression.py"). 
+
+2023/12/26
+
+Code now works on a smaller dataset if only 100000 entries. Next steps are trying to write code to create a smaller, randomized dataset from the big, original dataset (diabetes_012_health_indicators_BRFSS2015.csv). 
