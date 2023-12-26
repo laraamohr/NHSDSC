@@ -6,7 +6,8 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 
-dtst_dir = "datasets/diabetes_012_health_indicators_BRFSS2015.csv"
+# dtst_dir = "datasets/diabetes_012_health_indicators_BRFSS2015.csv"
+dtst_dir = "50_50_split.csv"
 
 dtst = pandas.read_csv(dtst_dir).dropna()
 
@@ -23,7 +24,7 @@ polyX = polyModel.fit_transform(x)
 
 # Split the dataset into to train/test sections.
 
-xTrain, xValidation, yTrain, yValidation = train_test_split(polyX, y, test_size=0.95, random_state=42)
+xTrain, xValidation, yTrain, yValidation = train_test_split(polyX, y, test_size=0.3, random_state=42)
 
 polyModel.fit(xTrain, yTrain)
 
@@ -57,6 +58,7 @@ for degree in degrees:
 plt.scatter(degrees, averageSquaredError, color="green")
 plt.plot(degrees, averageSquaredError, color="red")
 '''
+
 
 # https://stackoverflow.com/questions/57507832/unable-to-allocate-array-with-shape-and-data-type
 # https://enjoymachinelearning.com/blog/multivariate-polynomial-regression-python/
