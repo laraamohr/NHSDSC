@@ -7,11 +7,13 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 
-dtst_dir = "datasets/diabetes_012_health_indicators_BRFSS2015.csv"
+# dtst_dir = "datasets/diabetes_012_health_indicators_BRFSS2015.csv"
+dtst_dir = "datasets/diabetes_012_test_1.csv"
 
 dtst = pandas.read_csv(dtst_dir).dropna()
 
 # Function that takes in a pandas dataframe and outputs a new dataframe with n rows. These rows are selected randomly from the original dataset.
+# IMPORTANT: Function is incomplete. If someone could finish it, that would be much appreciated!
 def createRandomSmallDataset(dtst, n):
 
     newDataframe = pandas.DataFrame(columns=list(dtst.columns.values))
@@ -21,9 +23,6 @@ def createRandomSmallDataset(dtst, n):
         newDataframe.loc[i] = row
 
     return newDataframe
-
-dtst = createRandomSmallDataset(dtst, 10)
-print(dtst)
 
 x = dtst[["Diabetes_012", "HighBP", "HighChol", "CholCheck", "BMI", "Smoker", "Stroke", "HeartDiseaseorAttack", "PhysActivity", "Fruits", "Veggies", "HvyAlcoholConsump", "AnyHealthcare", "NoDocbcCost", "GenHlth", "PhysHlth", "DiffWalk", "Sex", "Age", "Education", "Income"]].values
 y = dtst["MentHlth"].values
